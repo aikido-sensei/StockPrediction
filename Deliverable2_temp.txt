@@ -1,5 +1,8 @@
 Problem Statement :
-Our goal is to create a machine learning model that can predict tomrrow's stock price based on past stock price trends. As the stock market can often be determinisic due to periodic 
-trends and other factors, we aim to predict certain market metrics. 
+Our goal is to create a machine learning model that can predict tomrrow's stock price based on past stock price trends. As the stock market can often be determinisic due to periodic trends and other factors, we aim to predict certain market metrics. 
 
 Data Preprocessing:
+For this project, we will be working with the Alpha Vantage API to access real-time and historical stock data, including metrics like open, high, low, close prices, and volume. This data is crucial for our machine learning model, which predicts future stock prices. The current dataset has ...
+/describe and justify preprocessing methods/
+
+
