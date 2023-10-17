@@ -1,0 +1,5 @@
+Problem Statement :
+Our goal is to create a machine learning model that can predict tomrrow's stock price based on past stock price trends. As the stock market can often be determinisic due to periodic 
+trends and other factors, we aim to predict certain market metrics. 
+
+Data Preprocessing:
