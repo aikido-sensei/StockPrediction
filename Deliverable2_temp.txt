@@ -1,8 +1,18 @@
 Problem Statement :
-Our goal is to create a machine learning model that can predict tomrrow's stock price based on past stock price trends. As the stock market can often be determinisic due to periodic trends and other factors, we aim to predict certain market metrics. 
+Our goal is to create a machine learning model that can predict tomrrow's stock price based on past stock price trends. As the stock market can often be determinisic due to periodic trends and other factors, we aim to predict certain market metrics such as trading volume and stock price (daily open, close, high, low).
 
 Data Preprocessing:
 For this project, we will be working with the Alpha Vantage API to access real-time and historical stock data, including metrics like open, high, low, close prices, and volume. This data is crucial for our machine learning model, which predicts future stock prices. The current dataset has ...
 /describe and justify preprocessing methods/
 
+
+
+
+Preliminary results:
+As discussed in deliverable 1, we used Mean Square Error to evaluate the model's accuracy and precision in predicting daily market metrics. 
+/Did we used DAE/
+
+Next steps:
+/discuss model performance/
+In our initial project proposal, we planned on providing sentiment analysis based on X (formerly Twitter) posts. Up until this point, we have based our model on pure statistic predictions. However, we hope incorporating value based training anaylsis will further improve our predictions. Public sentiment, shaped by collective emotions and perceptions, significantly impacts stock prices. Positive sentiment drives demand and raises prices, reflecting confidence in a company's prospects. Conversely, negative sentiment reduces demand, leading to price declines. As X is most often associated with being the contemporary equivalent of the traditional "town square" for public discourse. It is a virtual platform where people gather to express their opinions, share information, and engage in discussions. This is why we believe incorporating sentiment analysis in the future will vastly improve our model. 
 
