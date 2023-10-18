@@ -18,8 +18,7 @@ b)Dropout layers with a dropout rate of 0.2 were added after each LSTM layer. Th
 
 
 Preliminary results:
-As discussed in deliverable 1, we used Mean Square Error to evaluate the model's accuracy and precision in predicting daily market metrics. 
-/Did we used DAE/
+As discussed in deliverable 1, we used Mean Square Error to evaluate the model's accuracy and precision in predicting daily market metrics. Testing with larger batch sizes (64, 128, 256) yielded high MSE values, so we reduced the number to attempt to better predict prices. Moreover, it seemed that the optimal epoch number was around 100, as below and above values would lead to higher MSE values. As shown in graphs in the Jupyter Notebook folder, we've documented this testing and provided visualization for testing. 
 
 Next steps:
 /discuss model performance/
