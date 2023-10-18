@@ -121,7 +121,7 @@ class StockInfoFetcher:
 x = StockInfoFetcher()
 
 # Gets the complete lise of daily information of the stock AAPL and creates a json file
-#x.get_all_time_daily_variable_commodity_info('AAPL')
+x.get_all_time_daily_variable_commodity_info('GOOG')
 
 # Resets all the data of the fetcher and the files it created
 #x.reset()
