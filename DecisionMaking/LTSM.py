@@ -69,16 +69,16 @@ class LTSM:
         model = Sequential()
 
         model.add(LSTM(units=100, return_sequences=True, input_shape=input_shape))
-        model.add(Dropout(0.2))
+        model.add(Dropout(0.8))
 
         model.add(LSTM(units=100, return_sequences=True))
-        model.add(Dropout(0.2))
+        model.add(Dropout(0.1))
 
         model.add(LSTM(units=100))
-        model.add(Dropout(0.6))
+        model.add(Dropout(0.1))
 
         model.add(Dense(units=1))
-        optimizer = AdamW(learning_rate=0.001)
+        optimizer = Adam(learning_rate=0.001)
         model.compile(optimizer=optimizer, loss='mean_squared_error')
 
         self.model = model
@@ -134,10 +134,10 @@ class LTSM:
         print(f"Mean Squared Error on Test Data: {mse}")
 
 
-ltsm = LTSM(batch_size=10)
+ltsm = LTSM(batch_size=16)
 
 # Train the model for a specified number of epochs
-ltsm.train_model(epochs=25)
+ltsm.train_model(epochs=100)
 
 # Test the model
 ltsm.test_model()
