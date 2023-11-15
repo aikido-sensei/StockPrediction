@@ -3,6 +3,9 @@ import json
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Dropout
+
+from keras.optimizers import Adam, AdamW, Adadelta
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -65,18 +68,18 @@ class LTSM:
     def build_model(self, input_shape):
         model = Sequential()
 
-        model.add(LSTM(units=50, return_sequences=True, input_shape=input_shape))
+        model.add(LSTM(units=100, return_sequences=True, input_shape=input_shape))
         model.add(Dropout(0.2))
 
-        model.add(LSTM(units=50, return_sequences=True))
+        model.add(LSTM(units=100, return_sequences=True))
         model.add(Dropout(0.2))
 
-        model.add(LSTM(units=50))
-        model.add(Dropout(0.2))
+        model.add(LSTM(units=100))
+        model.add(Dropout(0.6))
 
         model.add(Dense(units=1))
-
-        model.compile(optimizer='adam', loss='mean_squared_error')
+        optimizer = AdamW(learning_rate=0.001)
+        model.compile(optimizer=optimizer, loss='mean_squared_error')
 
         self.model = model
 
@@ -88,6 +91,24 @@ class LTSM:
         self.build_model(input_shape)  # Build the model with the given input shape
 
         self.model.fit(X_train, y_train, epochs=epochs, batch_size=self.batch_size)
+
+        # Modify the training process to return the training history
+        history = self.model.fit(X_train, y_train, epochs=epochs, batch_size=self.batch_size, validation_split=0.1)
+
+        # Plot the training loss and validation loss
+        self.plot_loss(history)
+
+    def plot_loss(self, history):
+        plt.figure(figsize=(12, 6))
+
+        # Plot training & validation loss values
+        plt.plot(history.history['loss'])
+        plt.plot(history.history['val_loss'])
+        plt.title('Model loss')
+        plt.xlabel('Epoch')
+        plt.ylabel('Loss')
+        plt.legend(['Train', 'Validation'], loc='upper right')
+        plt.show()
 
     def predict(self, X_test):
         predictions = self.model.predict(X_test)
