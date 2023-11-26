@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prediction Model</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .my-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h1>Stock Prediction App</h1>
+        <p>
+            Welcome to our stock prediction app! Click below to upload daily stock data, and receive the predicted closing price for the next day!
+        </p>
+    <br>
+    <div id="result"></div>
+    <br>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file">Upload File:</label>
+        <input type="file" name="file" id="file" accept=".json">
+        <button type="submit">Get Prediction</button>
+    </form>
+
+    {% if output_result %}
+        <p>Predicted Closing Price for the Next Day: {{ output_result }}</p>
+    {% endif %}
+
+    <!-- Display any error message if available -->
+    {% if error %}
+        <p>Error: {{ error }}</p>
+    {% endif %}
+</body>
+</html>
